@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Nicholas Aaron Hewitt">
+    <title>Bear Ninja Hunter</title>
+</head>
+<body>
+    <div id="game-output">Waiting for player...</div>
+
+    <script>
+        // Get the player's name
+        let playerName = prompt("Welcome to Bear Hunter Ninja! Please enter your name to get started:");
+
+        // Say hello with a popup
+        alert("Hi " + playerName + " Let\'s Play!!");
+
+        // Ask the player for their move
+        let playerChoice = prompt("Who are you: Bear, Ninja, or Hunter?");
+
+        // The computer always picks Bear
+        const computerChoice = "Bear";
+
+        // Put the message on the webpage
+        document.getElementById("game-output").innerHTML = `${playerName}, You picked ${playerChoice}!<br><br>The computer picked ${computerChoice}!`;
+
+        // Put the message in the developer console 
+        console.log(`${playerName}, You picked ${playerChoice}!\nThe computer picked ${computerChoice}!`);
+    </script>
+</body>
+</html>
