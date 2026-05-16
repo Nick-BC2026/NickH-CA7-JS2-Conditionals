@@ -10,23 +10,59 @@
     <div id="game-output">Waiting for player...</div>
 
     <script>
-        // Get the player's name
-        let playerName = prompt("Welcome to Bear Hunter Ninja! Please enter your name to get started:");
+        // User inputs
+        let gamerName = prompt("Welcome to Bear Hunter Ninja! Please enter your name to get started:");
+        alert("Hi " + gamerName + " Let's Play!!");
+        let gamerChoice = prompt("Who are you: Bear, Ninja, or Hunter?");
 
-        // Say hello with a popup
-        alert("Hi " + playerName + " Let\'s Play!!");
+        // Game settings
+        const cpuChoice = "Bear";
+        let winnerText = "";
 
-        // Ask the player for their move
-        let playerChoice = prompt("Who are you: Bear, Ninja, or Hunter?");
+        // Game logic
+        switch (gamerChoice) {
+            case "Bear":
+                if (cpuChoice === "Bear") {
+                    winnerText = "Tie!";
+                } else if (cpuChoice === "Ninja") {
+                    winnerText = gamerName + " wins!";
+                } else {
+                    winnerText = "The computer wins!";
+                }
+                break;
 
-        // The computer always picks Bear
-        const computerChoice = "Bear";
+            case "Ninja":
+                if (cpuChoice === "Bear") {
+                    winnerText = "The computer wins!";
+                } else if (cpuChoice === "Ninja") {
+                    winnerText = "Tie!";
+                } else {
+                    winnerText = gamerName + " wins!";
+                }
+                break;
 
-        // Put the message on the webpage
-        document.getElementById("game-output").innerHTML = `${playerName}, You picked ${playerChoice}!<br><br>The computer picked ${computerChoice}!`;
+            case "Hunter":
+                if (cpuChoice === "Bear") {
+                    winnerText = gamerName + " wins!";
+                } else if (cpuChoice === "Ninja") {
+                    winnerText = "The computer wins!";
+                } else {
+                    winnerText = "Tie!";
+                }
+                break;
 
-        // Put the message in the developer console 
-        console.log(`${playerName}, You picked ${playerChoice}!\nThe computer picked ${computerChoice}!`);
+            default:
+                winnerText = "Invalid game state.";
+                break;
+        }
+
+        // Output formatting
+        let htmlOutput = `${gamerName}, You picked ${gamerChoice}!<br><br>The computer picked ${cpuChoice}!<br><br>${winnerText}`;
+        let consoleOutput = `${gamerName}, You picked ${gamerChoice}!\nThe computer picked ${cpuChoice}!\n${winnerText}`;
+
+        // Game output
+        document.getElementById("game-output").innerHTML = htmlOutput;
+        console.log(consoleOutput);
     </script>
 </body>
 </html>
