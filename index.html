@@ -10,42 +10,42 @@
     <div id="game-output">Waiting for player...</div>
 
     <script>
-        // User inputs
+        // Inputs
         let gamerName = prompt("Welcome to Bear Hunter Ninja! Please enter your name to get started:");
-        alert("Hi " + gamerName + " Let's play a game shall we?!");
+        alert("Hi " + gamerName + " Let's Play!!");
         let gamerChoice = prompt("Who are you: Bear, Ninja, or Hunter?");
 
-        // Game settings
+        // Settings
         const cpuChoice = "Bear";
         let winnerText = "";
 
-        // Game logic
+        // Logic
         switch (gamerChoice) {
             case "Bear":
                 if (cpuChoice === "Bear") {
                     winnerText = "Tie!";
                 } else if (cpuChoice === "Ninja") {
-                    winnerText = gamerName + " wins!";
+                    winnerText = "You Win!!";
                 } else {
-                    winnerText = "The computer wins!";
+                    winnerText = "The Computer Wins!";
                 }
                 break;
 
             case "Ninja":
                 if (cpuChoice === "Bear") {
-                    winnerText = "The computer wins!";
+                    winnerText = "The Computer Wins!";
                 } else if (cpuChoice === "Ninja") {
                     winnerText = "Tie!";
                 } else {
-                    winnerText = gamerName + " wins!";
+                    winnerText = "You Win!!";
                 }
                 break;
 
             case "Hunter":
                 if (cpuChoice === "Bear") {
-                    winnerText = gamerName + " wins!";
+                    winnerText = "You Win!!";
                 } else if (cpuChoice === "Ninja") {
-                    winnerText = "The computer wins!";
+                    winnerText = "The Computer Wins!";
                 } else {
                     winnerText = "Tie!";
                 }
@@ -56,11 +56,10 @@
                 break;
         }
 
-        // Output formatting
-        let htmlOutput = `${gamerName}, You picked ${gamerChoice}!<br><br>The computer picked ${cpuChoice}!<br><br>${winnerText}`;
-        let consoleOutput = `${gamerName}, You picked ${gamerChoice}!\nThe computer picked ${cpuChoice}!\n${winnerText}`;
+        // Output
+        let htmlOutput = `${gamerName} you chose ${gamerChoice}!<br><br>The computer chose ${cpuChoice}!<br><br>${winnerText}`;
+        let consoleOutput = `${gamerName} you chose ${gamerChoice}!\nThe computer chose ${cpuChoice}!\n${winnerText}`;
 
-        // Game output
         document.getElementById("game-output").innerHTML = htmlOutput;
         console.log(consoleOutput);
     </script>
